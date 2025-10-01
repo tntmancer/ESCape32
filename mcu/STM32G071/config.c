@@ -33,6 +33,8 @@
 #define SENS_CHAN 0x64
 #elif SENS_MAP == 0xA6A5A4 // A6 (temp), A5 (volt), A4 (curr)
 #define SENS_CHAN 0x654
+#elif SENS_MAP == 0xA4A5 // A4 (volt), A5 (curr)
+#define SENS_CHAN 0x45
 #endif
 
 #ifndef ANALOG_CHAN
