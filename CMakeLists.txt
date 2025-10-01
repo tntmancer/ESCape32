@@ -92,3 +92,8 @@ add_target(TMOTOR1 STM32F051 DEAD_TIME=26 COMP_MAP=132 IO_PA2)
 add_target(TMOTOR2 STM32F051 DEAD_TIME=26 COMP_MAP=321)
 add_target(TMOTOR3 STM32G071 DEAD_TIME=35 COMP_MAP=231 IO_PA6)
 add_target(TMOTOR4 STM32G071 DEAD_TIME=35 COMP_MAP=123)
+# CASSEE ESCs
+# Use with BOOT2_PB4-rev4.hex
+# - voltage divider is 39k over 4.7k (so V=9.30*reading but the multiplier is divided by ~100 thus we use 930)
+# - current reading is V= I*0.001*39,000/1,000 -> I = V*25.64 -> 256 multiplier (as the multiplier is divided by ~10 later)
+add_target(CASSEE_PDB STM32G071 DEAD_TIME=35 COMP_MAP=123 SENS_MAP=0xA4A5 VOLT_MUL=930 CURR_MUL=26 LED_MAP=0xB8)
