@@ -114,6 +114,8 @@ extern const uint16_t sinedata[];
 extern const Cfg cfgdata;
 extern Cfg cfg;
 extern int throt, ertm, erpm, temp1, temp2, volt, curr, csum, dshotval, beepval;
+extern uint16_t buf[]; // ADC DMA Buffer
+extern char len;        // Number of valid ADC samples in buf
 extern char analog, telreq, telmode, flipdir, beacon, dshotext;
 
 void init(void);
