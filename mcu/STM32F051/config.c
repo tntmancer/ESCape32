@@ -48,8 +48,8 @@
 #define COMP_SHIFT 0
 #endif
 
-static char len, ain;
-static uint16_t buf[6];
+char len, ain;
+uint16_t buf[6];
 
 void init(void) {
 	RCC_APB2RSTR = -1;
