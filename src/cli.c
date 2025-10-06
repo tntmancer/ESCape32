@@ -61,9 +61,6 @@
 	XX(40, val, bec) \
 	XX(41, val, led) \
 
-extern uint16_t buf[6]; // ADC DMA Buffer
-extern char len;        // Number of valid ADC samples in buf
-
 static int beep = -1;
 
 static int split(char *str, char **vec, int len, const char *sep) {
