@@ -61,6 +61,9 @@
 	XX(40, val, bec) \
 	XX(41, val, led) \
 
+extern uint16_t buf[6]; // ADC DMA Buffer
+extern char len;        // Number of valid ADC samples in buf
+
 static int beep = -1;
 
 static int split(char *str, char **vec, int len, const char *sep) {
@@ -125,7 +128,7 @@ static int setbeepval(int val) {
 }
 
 int execcmd(char *str) {
-	static const char *const cmds[] = {"help", "info", "show", "get", "set", "save", "reset", "play", "throt", "beep", 0};
+	static const char *const cmds[] = {"help", "info", "show", "get", "set", "save", "reset", "play", "throt", "beep", "adcdump", 0};
 	static const char *const keys[] = {
 #define XX(idx, type, key) #key,
 CFG_MAP(XX)
@@ -234,6 +237,15 @@ CFG_MAP(XX)
 			if (beep < 0) beep = 0;
 			beepval = beep;
 			break;
+		case 10: // 'adcdump'
+	        for (int i = 0; i < len; i++) {
+	            appendstr(&pos, "buf[");
+	            appendval(&pos, i);
+	            appendstr(&pos, "] = ");
+	            appendval(&pos, buf[i]);
+	            appendstr(&pos, "\n");
+	        }
+	        break;
 		default:
 			goto error;
 	}
