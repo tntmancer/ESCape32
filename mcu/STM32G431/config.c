@@ -42,8 +42,8 @@
 #define TIM1_CCMR3 MMIO32(TIM1_BASE + 0x50)
 #define TIM2_TISEL MMIO32(TIM2_BASE + 0x5c)
 
-static char len1, len2, ain;
-static uint16_t buf[6];
+char len1, len2, ain;
+uint16_t buf[6];
 #ifdef LED_WS2812
 static uint16_t led[5];
 #endif
