@@ -41,8 +41,8 @@
 #define ADC1_BASE ADC_BASE
 #define COMP_CSR MMIO32(SYSCFG_COMP_BASE + 0x1c)
 
-static char len, ain;
-static uint16_t buf[6];
+char len, ain;
+uint16_t buf[6];
 #ifdef LED_WS2812
 static uint16_t led[5];
 #endif
