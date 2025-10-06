@@ -45,8 +45,8 @@
 #endif
 #define TIM2_OR1 MMIO32(TIM2_BASE + 0x50)
 
-static char len, ain;
-static uint16_t buf[6];
+char len, ain;
+uint16_t buf[6];
 
 void init(void) {
 	RCC_AHB1RSTR = -1;
